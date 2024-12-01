@@ -12,6 +12,8 @@ Start by running either `yarn install` or `npm install`(or any other package man
 
 To run the server, please use `yarn dev` or `npm run dev`.
 
+Any changes made to the `prisma.schema` file, please remember to run: `npx prisma generate` and `npx prisma db push`.
+
 ## Important
 I am using environment variables to protect my Mongo database. To use this please create a `.env` file in the project root and add the following:
 
