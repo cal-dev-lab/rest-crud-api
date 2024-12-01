@@ -16,4 +16,8 @@ To run the server, please use `yarn dev` or `npm run dev`.
 I am using environment variables to protect my Mongo database. To use this please create a `.env` file in the project root and add the following:
 
 `DATABASE_URL`: Your database URL. If you use anything other than Mongo, please also update the `prisma.schema` file to match.
+<br />
 `PORT`: Your port of choice. I typically use 1337.
+
+## Let's connect
+If you have any questions about this project, want to collab or anything in general, feel free to get in touch!
