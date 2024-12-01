@@ -20,7 +20,8 @@ I am using environment variables to protect my Mongo database. To use this pleas
 `PORT`: Your port of choice. I typically use 1337.
 
 ## Available Routes
- - [GET, POST]: /users
+"/users": [GET, POST]
+`Work in progress...`
 
 ## Let's Connect
 If you have any questions about this project, want to collab or anything in general, feel free to get in touch!
