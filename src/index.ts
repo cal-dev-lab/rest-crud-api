@@ -1,8 +1,17 @@
 import express, { Request, Response } from 'express';
 import { getUsers, getUserById, createUser, updateUserById, deleteUserById } from './controllers/user.route';
+import { rateLimiter } from './middleware/rateLimiter';
+import cors from "cors";
 
 const app = express();
 
+// Add origins to allow CORS
+const allowedOrigins = ['http://localhost:10000', 'https://rest-crud-api.onrender.com'];
+const options: cors.CorsOptions = {
+    origin: allowedOrigins
+};
+
+app.use(cors(options));
 app.use(express.json());
 
 /**
@@ -23,11 +32,11 @@ app.get('/', (req: Request, res: Response) => {
  * ---------------------------
 **/
 
-app.get('/users', getUsers);
-app.get('/users/:id', getUserById);
-app.post('/users', createUser);
-app.put('/users/:id', updateUserById);
-app.delete('/users/:id', deleteUserById);
+app.get('/users', rateLimiter, getUsers);
+app.get('/users/:id', rateLimiter, getUserById);
+app.post('/users', rateLimiter, createUser);
+app.put('/users/:id', rateLimiter, updateUserById);
+app.delete('/users/:id', rateLimiter, deleteUserById);
 
 /**
  * ---------------------------
