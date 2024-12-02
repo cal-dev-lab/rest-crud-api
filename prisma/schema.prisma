@@ -14,9 +14,20 @@ datasource db {
 }
 
 model User {
-    id      String  @id @default(auto()) @map("_id") @db.ObjectId
-    email   String  @unique
-    name    String
+    id          String  @id @default(auto()) @map("_id") @db.ObjectId
+    email       String  @unique
+    firstName   String
+    lastName    String
+    // address1    String?
+    // address2    String?
+    // address3    String?
+    // postcode    String?
+    // townOrCity  String?
+    // countryId   String?
+    // createdAt   DateTime?
+    // telHome     Int?
+    // telMobile   Int?
+    // telWork     Int?
 
     @@map("users")
 }

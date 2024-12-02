@@ -1,11 +1,15 @@
 import express, { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
-import { ObjectId } from 'mongodb';
+import { getUsers, getUserById, createUser, updateUserById, deleteUserById } from './controllers/user.route';
 
-const prisma = new PrismaClient();
 const app = express();
 
 app.use(express.json());
+
+/**
+ * ---------------------------
+ * ROOT
+ * ---------------------------
+**/
 
 app.get('/', (req: Request, res: Response) => {
     res.json({
@@ -13,39 +17,32 @@ app.get('/', (req: Request, res: Response) => {
     });
 });
 
-app.get('/users', async (req: Request, res: Response) => {
-    const users = await prisma.user.findMany();
-    res.json({
-        message: 'List of all users.',
-        data: users,
-    });
-});
+/**
+ * ---------------------------
+ * USERS
+ * ---------------------------
+**/
 
-app.post('/users', async (req: Request, res: Response) => {
-    const { name, email } = req.body;
-    const userId = new ObjectId();
-    const user = await prisma.user.create({
-        data: {
-            id: userId.toHexString(),
-            name: name,
-            email: email
-        }
-    });
-    res.json({
-        message: 'User created successfully.',
-        data: user,
-    });
-});
+app.get('/users', getUsers);
+app.get('/users/:id', getUserById);
+app.post('/users', createUser);
+app.put('/users/:id', updateUserById);
+app.delete('/users/:id', deleteUserById);
+
+/**
+ * ---------------------------
+ * PORT
+ * ---------------------------
+**/
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server active: ${PORT}`);
+    console.log(`Server active on port: ${PORT}`);
 });
 
 // TODO:
 /**
  * Add user roles
- * Add middleware
- * Add validation
+ * Add middleware validation with Zod
  */
