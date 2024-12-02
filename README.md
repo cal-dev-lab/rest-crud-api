@@ -6,7 +6,7 @@ I have made this custom API with NodeJS, TypeScript, Express, Mongo (Atlas) and 
 This will be a demo API with working functionality. This is deployed on Render, it has limited compute hours so please do not abuse this external API URL.
 
 ## Getting Started
-If you would like to play with the code, please feel free to clone this repo and do with it to your hearts content. 
+If you would like to play with the code, please feel free to clone this repo and do with it to your hearts content.
 
 Start by running either `yarn install` or `npm install`(or any other package manager you may use).
 
@@ -22,8 +22,13 @@ I am using environment variables to protect my Mongo database. To use this pleas
 `PORT`: Your port of choice. I typically use 1337.
 
 ## Available Routes
-"/users": [GET, POST]
-`Work in progress...`
+| Method | Route | Description |
+| ------ | ----- | ----------- |
+| GET    | /users | Get all users. |
+| GET    | /users/:id | Get user by id. |
+| POST   | /users | Create user. |
+| PUT    | /users/:id | Update user by id. |
+| DELETE | /users/:id | Delete user by id. |
 
 ## Let's Connect
 If you have any questions about this project, want to collab or anything in general, feel free to get in touch!
