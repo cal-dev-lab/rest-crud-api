@@ -21,6 +21,8 @@ I am using environment variables to protect my Mongo database. To use this pleas
 <br />
 `PORT`: Your port of choice. I typically use 1337.
 
+When using this APIs external URL, please allow time for it to spin up (up to 50s) as the server will spin down if there is any inactivity.
+
 ## Available Routes
 | Method | Route | Description |
 | ------ | ----- | ----------- |
