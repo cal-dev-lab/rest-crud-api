@@ -6,7 +6,7 @@ import cors from "cors";
 const app = express();
 
 // Add origins to allow CORS
-const allowedOrigins = ['http://localhost:10000', 'https://rest-crud-api.onrender.com'];
+const allowedOrigins = ['http://localhost:10000', 'https://rest-crud-api.onrender.com', 'https://remix-users-app.netlify.app'];
 const options: cors.CorsOptions = {
     origin: allowedOrigins
 };
